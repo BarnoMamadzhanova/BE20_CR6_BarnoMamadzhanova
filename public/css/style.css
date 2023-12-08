@@ -1,0 +1,75 @@
+.myNav{
+    background-color: #457B9D;
+}
+
+.logoImg{
+    width: 140px;
+    height: 45px;
+}
+
+.navbar a:hover{
+    color: #1D3557;
+}
+
+.btnFooter{
+    background-color: #EC9A9A;
+    color: #1D3557;
+    width: 100px;
+}
+
+.btnFooter:hover{
+    background-color: #77ABBD;
+}
+
+.myFooter{
+    background-color: #457B9D;
+    margin-bottom: 0;
+}
+
+.footer-link{
+    color: #1D3557;
+}
+
+.footer-link:hover{
+    color: #E63946;
+}
+
+.hero{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url(https://cdn.pixabay.com/photo/2014/08/31/10/03/theater-432045_1280.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.heroText{
+    position: absolute;
+    top: 42%;
+    left: 27%;
+    text-align: center;
+    width: 45vw;
+    height: 28vh;
+    background-color: #457B9D;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroText h2{
+    color: #1D3557;
+}
+
+.btnHero{
+    width: 120px;
+    background-color: #77ABBD;
+    color: white;
+}
+
+.btnHero:hover{
+    background-color: #EC9A9A;
+}
