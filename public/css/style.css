@@ -8,17 +8,17 @@
 }
 
 .navbar a:hover{
-    color: #1D3557;
+    color: #EC9A9A;
 }
 
 .btnFooter{
-    background-color: #EC9A9A;
+    background-color: #77ABBD;
     color: #1D3557;
     width: 100px;
 }
 
 .btnFooter:hover{
-    background-color: #77ABBD;
+    background-color: #EC9A9A;
 }
 
 .myFooter{
@@ -31,7 +31,7 @@
 }
 
 .footer-link:hover{
-    color: #E63946;
+    color: #EC9A9A;
 }
 
 .hero{
@@ -50,7 +50,7 @@
     text-align: center;
     width: 45vw;
     height: 28vh;
-    background-color: #457B9D;
+    background-color: #e6394700;
     border-radius: 20px;
     padding: 1rem;
     display: flex;
@@ -61,7 +61,11 @@
 }
 
 .heroText h2{
-    color: #1D3557;
+    color: #F1FAEE;
+}
+
+.heroP{
+    color: #F1FAEE;
 }
 
 .btnHero{
@@ -72,4 +76,8 @@
 
 .btnHero:hover{
     background-color: #EC9A9A;
+}
+
+.body{
+    background-color: #457b9d6f;
 }
