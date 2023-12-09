@@ -10,20 +10,20 @@
 <div class="body"> 
     
     <div class="container">
-        <h2 class="py-5 headers">Events</h2>
+        <h2 class="py-5 headers" id="header">Events</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             {% for event in events %}
                 <div class="my-4">
                     <div class="card myCard">
-                        <img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}">
+                        <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
                         <div class="card-body">
-                          <h5 class="card-title">{{ event.name }}</h5>
+                          <a href="{{ path('app_events_show', {'id': event.id}) }}"><h5 class="card-title">{{ event.name }}</h5></a>
                           <p class="fst-italic">{{ event.type }}</p>
                           <p>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</p>
                           <p>{{ event.address }}</p>
                           <p class="fst-italic">{{ event.website }}</p>
-                          <a href="{{ path('app_events_show', {'id': event.id}) }}">show</a>
-                          <a href="{{ path('app_events_edit', {'id': event.id}) }}">edit</a>
+                          <a href="{{ path('app_events_show', {'id': event.id}) }}">More</a>
+                          <a href="{{ path('app_events_edit', {'id': event.id}) }}">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 </div>
            {% endfor %}
         
-           <a href="{{ path('app_events_new') }}">Create new</a>
+           {# <a href="{{ path('app_events_new') }}">Create new</a> #}
         
         </div>
         
