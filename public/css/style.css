@@ -1,5 +1,5 @@
 .myNav{
-    background-image: linear-gradient(#457B9D, #90C3CD);
+    background-color: #1d3557d3;
 }
 
 .logoImg{
@@ -7,8 +7,31 @@
     height: 45px;
 }
 
-.navbar a:hover{
-    color: #EC9A9A;
+.myNav a{
+   color: white;
+   position: relative;
+   text-decoration: none;
+}
+
+.navbar .myLink::after {
+    content: ''; 
+    position: absolute; 
+    width: 100%; 
+    height: 2px; 
+    bottom: -3px; 
+    left: 0; 
+    background-color: transparent; 
+    transition: all 0.3s ease; 
+}
+
+.navbar .myLink:hover::after {
+    width: calc(100% + 5px); 
+    background-color: #E63946; 
+}
+
+.navbar a:hover {
+    text-decoration: none; 
+    color: white; 
 }
 
 .btnFooter{
@@ -90,21 +113,142 @@
 }
 
 .myCard{
-    height: 650px;
-    background-color: #EFCAC4;
-    box-shadow: 0 4px 8px 0 rgba(236,154,154, 0.5), 0 6px 20px 0 rgba(236,154,154, 0.5);
+    height: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.myCard h5{
+.mainCard{
+    height: 300px;
+    padding-top: 12px;
+}
+
+.myCard p{
+    color: rgba(0, 0, 0, 0.795);
+}
+
+.address{
+    height: 36px;
+}
+
+.title{
     color: #1D3557;
     text-decoration: none;
+    position: relative;
+    text-align: center;
 }
 
-.myCard h5:hover{
-    text-decoration: underline;
+.title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
+
+.title:hover {
+    text-decoration: none; 
+    color: #1D3557; 
+}
+
+.title:hover::after {
+    width: calc(100% + 10px);
+    background-color: #E63946;
+}
+
+.imageContainer{
+    position: relative;
+    width: 100%;
+}
+
 
 .myCardImg{
     width: 100%;
-    height: 300px;
+    height: 240px;
+    object-fit: cover;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.imageContainer:hover .myCardImg {
+    opacity: 0.8;
+}
+
+.imageContainer:hover .middle {
+    opacity: 1;
+}
+
+.more{
+    text-decoration: none;
+    background-color: #1D3557;
+    color: #F1FAEE;
+    font-size: 22px;
+    padding: 12px 24px;
+    text-align: center;
+}
+
+
+.website{
+    color: #1D3557;
+    text-decoration: none;
+    position: relative;
+}
+
+.website::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.website:hover {
+    text-decoration: none; 
+    color: #1D3557; 
+}
+
+.website:hover::after {
+    width: calc(100% + 5px);
+    background-color: #E63946;
+}
+
+.btnEdit{
+    width: 80px;
+    padding: 6px 12px;
+    background-color: #457B9D;
+    color: #F1FAEE;
+}
+
+.btnEdit:hover{
+    background-color: #77ABBD;
+    color: #F1FAEE;
+}
+
+.btnDelete{
+    width: 80px;
+    padding: 6px 12px;
+    background-color: #D13440;
+    color: #F1FAEE;
+}
+
+.btnDelete:hover{
+    background-color: #e63947b9;
+    color: #F1FAEE;
 }

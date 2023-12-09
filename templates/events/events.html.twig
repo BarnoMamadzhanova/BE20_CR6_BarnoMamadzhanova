@@ -15,15 +15,23 @@
             {% for event in events %}
                 <div class="my-4">
                     <div class="card myCard">
+                        <div class="imageContainer">
                         <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
+                        <div class="middle">
+                            <div class="text"><a class="more" href="{{ path('app_events_show', {'id': event.id}) }}">More</a></div>
+                        </div>
+                        </div>
+                        <div class="card-body mainCard">
+                          <a class="title" href="{{ path('app_events_show', {'id': event.id}) }}"><h5 class="card-title">{{ event.name }}</h5></a>
+                          <p>Type: <span class="fst-italic">{{ event.type }}</span></p>
+                          <p>Date: {{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</p>
+                          <p class="address">Address: {{ event.address }}</p>
+                          <p>For more information: </p>
+                          <span class="fst-italic"><a href="#" class="website">{{ event.website }}</a></span>
+                        </div>
                         <div class="card-body">
-                          <a href="{{ path('app_events_show', {'id': event.id}) }}"><h5 class="card-title">{{ event.name }}</h5></a>
-                          <p class="fst-italic">{{ event.type }}</p>
-                          <p>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</p>
-                          <p>{{ event.address }}</p>
-                          <p class="fst-italic">{{ event.website }}</p>
-                          <a href="{{ path('app_events_show', {'id': event.id}) }}">More</a>
-                          <a href="{{ path('app_events_edit', {'id': event.id}) }}">Edit</a>
+                          <a href="{{ path('app_events_edit', {'id': event.id}) }}"><button class="btn btnEdit">Edit</button></a>
+                          <a href="{{ path('app_events_delete', {'id': event.id}) }}"><button class="btn btnDelete">Delete</button></a>
                         </div>
                     </div>
                 </div>
