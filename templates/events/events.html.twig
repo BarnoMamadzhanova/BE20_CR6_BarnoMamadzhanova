@@ -29,6 +29,12 @@
                 <button class="btn btn-outline-secondary" type="submit">Choose</button>
             </div>
         </form>
+        {# ************************Alert********************* #}
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         {# ********************All events******************** #}
         <h2 class="py-5 headers" id="header">Events</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
@@ -36,7 +42,7 @@
                 <div class="my-4">
                     <div class="card myCard">
                         <div class="imageContainer">
-                        <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
+                            <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
                         <div class="middle">
                             <div class="text"><a class="more" href="{{ path('app_events_show', {'id': event.id}) }}">More</a></div>
                         </div>
@@ -69,7 +75,11 @@
 
 {% endblock %}
 
-
+                        {# {% if imageFromUploader[event.id] %}
+                            <img src="{{ imageFromUploader[event.id] }}" class="card-img-top myCardImg" alt="{{ event.name }}">
+                        {% else %}
+                            <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
+                        {% endif %} #}
 
     {# <table class="table">
         <thead>
