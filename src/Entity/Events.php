@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EventsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventsRepository::class)]
 class Events
@@ -15,33 +16,43 @@ class Events
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\NotBlank]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $capacity = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Email]
     private ?string $email = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank]
     private ?string $phone_number = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $address = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $website = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank]
     private ?string $type = null;
 
     public function getId(): ?int

@@ -17,20 +17,11 @@ use App\Service\FileUploader;
 class EventsController extends AbstractController
 {
     #[Route('/', name: 'app_events_index', methods: ['GET'])]
-    public function index(EventsRepository $eventsRepository, FileUploader $fileUploader): Response
+    public function index(EventsRepository $eventsRepository): Response
     {
-        $events = $eventsRepository->findAll();
-        $imageFromUploader = [];
-        foreach ($events as $event) {
-            $imageName = $event->getImage(); 
-            if ($imageName) {
-                $imageFromUploader[$event->getId()] = $fileUploader->getTargetDirectory() . '/' . $imageName;
-            }
-        }
 
         return $this->render('events/events.html.twig', [
-            'events' => $events,
-            'imageFromUploader' => $imageFromUploader,
+            'events' => $eventsRepository->findAll(),
         ]);
     }
 
@@ -59,14 +50,12 @@ class EventsController extends AbstractController
         $form = $this->createForm(EventsType::class, $event);
         $form->handleRequest($request);
 
-        $imageFromUploader = null; 
 
         if ($form->isSubmitted() && $form->isValid()) {
             $image = $form->get('image')->getData();
             if ($image) {
                 $imageName = $fileUploader->upload($image);
                 $event->setImage($imageName);
-                $imageFromUploader = $fileUploader->getTargetDirectory() . '/' . $imageName; 
             }
             $entityManager->persist($event);
             $entityManager->flush();
@@ -82,7 +71,6 @@ class EventsController extends AbstractController
         return $this->render('events/new.html.twig', [
             'event' => $event,
             'form' => $form->createView(),
-            'imageFromUploader' => $imageFromUploader, 
         ]);
     }
 

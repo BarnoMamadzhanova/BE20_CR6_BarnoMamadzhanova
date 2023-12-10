@@ -9,7 +9,7 @@
 
 <div class="body"> 
     
-    <div class="container">
+    <div class="container pb-5">
         {# *************Filtering**************** #}
         <form action="{{ path('app_events_filter_by_type') }}" method="GET" class="pt-5">
             <div class="input-group">
@@ -31,7 +31,7 @@
         </form>
         {# ************************Alert********************* #}
         {% for message in app.flashes('notice') %}
-            <div class="alert alert-success">
+            <div class="alert alert-success myAllert mt-3">
                 {{ message }}
             </div>
         {% endfor %}
@@ -41,9 +41,9 @@
             {% for event in events %}
                 <div class="my-4">
                     <div class="card myCard">
-                        <div class="imageContainer">
-                            <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ event.image }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
-                        <div class="middle">
+                        <div class="imageContainer">            
+                             <a href="{{ path('app_events_show', {'id': event.id}) }}"><img src="{{ asset('images/'~ event.image) }}" class="card-img-top myCardImg" alt="{{ event.name }}"></a>
+                            <div class="middle">
                             <div class="text"><a class="more" href="{{ path('app_events_show', {'id': event.id}) }}">More</a></div>
                         </div>
                         </div>
@@ -55,9 +55,9 @@
                           <p>For more information: </p>
                           <span class="fst-italic"><a href="#" class="website">{{ event.website }}</a></span>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body button-row">
                           <a href="{{ path('app_events_edit', {'id': event.id}) }}"><button class="btn btnEdit">Edit</button></a>
-                          <a href="{{ path('app_events_delete', {'id': event.id}) }}"><button class="btn btnDelete">Delete</button></a>
+                          {{ include('events/_delete_form.html.twig') }}
                         </div>
                     </div>
                 </div>

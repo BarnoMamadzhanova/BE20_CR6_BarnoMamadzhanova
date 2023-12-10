@@ -34,28 +34,55 @@
     color: white; 
 }
 
-.btnFooter{
-    background-color: #77ABBD;
-    color: #1D3557;
-    width: 100px;
-}
-
-.btnFooter:hover{
-    background-color: #EC9A9A;
-}
-
 .myFooter{
-    background-color: #457B9D;
+    background-color: #1d3557aa;
     margin-bottom: 0;
+}
+
+.myFooter a{
+    color: white;
+    position: relative;
+    text-decoration: none;
+}
+
+.links .footer-link::after {
+    content: ''; 
+    position: absolute; 
+    width: 100%; 
+    height: 2px; 
+    bottom: -3px; 
+    left: 0; 
+    background-color: transparent; 
+    transition: all 0.3s ease; 
+}
+
+.links .footer-link:hover::after {
+    width: calc(100% + 5px); 
+    background-color: #E63946; 
+}
+
+.links a:hover {
+    text-decoration: none; 
+    color: white; 
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
 }
 
 .footer-link{
     color: #1D3557;
-    list-style: none;
 }
 
 .footer-link:hover{
     color: #EC9A9A;
+}
+
+.copyright{
+    color: #F1FAEE;
 }
 
 .hero{
@@ -99,15 +126,15 @@
 }
 
 .btnHero:hover{
-    background-color: #EC9A9A;
+    background-color: #77abbdbd;
+    color: white;
 }
 
 .body{
     background-color: #457b9d6f;
 }
 
-
-#header{
+.headers{
     text-align: center!important;
     color: #1D3557!important;
 }
@@ -162,7 +189,6 @@
     position: relative;
     width: 100%;
 }
-
 
 .myCardImg{
     width: 100%;
@@ -252,3 +278,75 @@
     background-color: #e63947b9;
     color: #F1FAEE;
 }
+
+#events_date{
+    display: flex;
+    gap: 32px;
+}
+
+#events_date select{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnSave{
+    width: 80px;
+    padding: 6px 12px;
+    background-color: #1D3557;
+    color: #F1FAEE;
+}
+
+.btnSave:hover{
+    background-color: #1d3557cf;
+    color: #F1FAEE;
+}
+
+.btnBack{
+    width: 80px;
+    padding: 6px 12px;
+    background-color: #717568;
+    color: #F1FAEE;
+}
+
+.btnBack:hover{
+    background-color: #717568c6;
+    color: #F1FAEE;
+}
+
+.myCardDetails{
+    background-color: #3f4739a0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.myCardDetails h5{
+    color: #1D3557; 
+    text-align: center;
+}
+
+.cardImgDetails{
+    height: 100%;
+}
+
+.bgCard{
+    background-color: #a2849795;
+    padding: 0 16px;
+    color: white;
+}
+
+.button-row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
