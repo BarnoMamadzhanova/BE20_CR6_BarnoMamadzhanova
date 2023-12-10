@@ -21,6 +21,21 @@ class EventsRepository extends ServiceEntityRepository
         parent::__construct($registry, Events::class);
     }
 
+    /**
+     * Find events by event type
+     *
+     * @param string $type
+     * @return Events[] Returns an array of Events objects
+     */
+    public function findByEventType(string $type): array
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.type = :type')
+            ->setParameter('type', $type)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Events[] Returns an array of Events objects
 //     */

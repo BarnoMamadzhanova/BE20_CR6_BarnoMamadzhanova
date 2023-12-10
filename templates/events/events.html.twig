@@ -10,6 +10,26 @@
 <div class="body"> 
     
     <div class="container">
+        {# *************Filtering**************** #}
+        <form action="{{ path('app_events_filter_by_type') }}" method="GET" class="pt-5">
+            <div class="input-group">
+                <select class="form-select" name="type" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected>Choose event type</option>
+                      <option value="art">Art</option>
+                      <option value="dance">Dance</option>
+                      <option value="fashion">Fashion</option>
+                      <option value="food">Food</option>
+                      <option value="gaming">Gaming</option>
+                      <option value="movie">Movie</option>
+                      <option value="music">Music</option>
+                      <option value="science">Science</option>
+                      <option value="sport">Sport</option>
+                      <option value="theater">Theater</option>
+                </select>
+                <button class="btn btn-outline-secondary" type="submit">Choose</button>
+            </div>
+        </form>
+        {# ********************All events******************** #}
         <h2 class="py-5 headers" id="header">Events</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             {% for event in events %}
@@ -41,8 +61,6 @@
                 </div>
            {% endfor %}
         
-           {# <a href="{{ path('app_events_new') }}">Create new</a> #}
-        
         </div>
         
     </div>
@@ -50,6 +68,8 @@
 </div>
 
 {% endblock %}
+
+
 
     {# <table class="table">
         <thead>

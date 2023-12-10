@@ -22,6 +22,23 @@ class EventsController extends AbstractController
         ]);
     }
 
+    #[Route('/type', name: 'app_events_filter_by_type', methods: ['GET'])]
+    public function filterByType(Request $request, EventsRepository $eventsRepository): Response
+    {
+        $type = $request->query->get('type');
+
+        if ($type) {
+            $filteredEvents = $eventsRepository->findByEventType($type);
+        } else {
+            $filteredEvents = $eventsRepository->findAll();
+        }
+
+        return $this->render('events/events.html.twig', [
+            'events' => $filteredEvents,
+            'filteredBy' => $type,
+        ]);
+    }
+
     #[Route('/new', name: 'app_events_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
